@@ -23,5 +23,11 @@
     "default_panel": "index.html",
     "default_icon": "img/downloads.svg"
   },
-  "author": "Tim Nguyen"
+  "author": "Tim Nguyen",
+  "applications": {
+    "gecko": {
+      "id": "download-manager@tim-addons.com",
+      "strict_min_version": "45.0"
+    }
+  }
 }
