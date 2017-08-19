@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: message-box;
+}
+
+html, body, #app, .downloads {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#browser-action:target + #app {
+  width: 400px;
+  min-height: 400px;
+}
+
+.toolbar {
+  border-bottom: 1px solid var(--grey-30);
+  display: flex;
+}
+
+.toolbar .search-input {
+  font: menu;
+  padding: 10px;
+  padding-left: 40px;
+  flex-grow: 1;
+  background-image: url(../img/search.svg);
+  background-position: calc((40px - 16px) / 2) center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.clear-button {
+  background: url(../img/clear.svg) center / 16px no-repeat;
+  padding: 10px 20px;
+  border: none;
+}
+
+.downloads-list {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.downloads-footer {
+  border: none;
+  background-color: var(--grey-20);
+  border-top: 1px solid var(--grey-30);
+  text-align: center;
+  padding: 10px;
+}
+
+.downloads-footer:hover {
+  background-color: var(--grey-30);
+}
+
+.downloads-footer:hover:active {
+  background-color: var(--grey-40);
+}
+
+.download-item {
+  display: flex;
+  align-items: center;
+}
+
+.download-item:not(:last-of-type) {
+  border-bottom: 1px solid var(--grey-30);
+}
+
+.download-item-info-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.download-item-info-wrapper:hover,
+.download-item-action:hover {
+  background: var(--grey-20)
+}
+
+.download-item-info-wrapper:hover:active,
+.download-item-action:hover:active {
+  background: var(--grey-30)
+}
+
+.download-item-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.download-item-info {
+  padding: 10px;
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.download-item-name,
+.download-item-details {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.download-item-actions {
+  display: flex;
+  align-self: stretch;
+}
+
+.download-item-action {
+  padding: 0 15px;
+  align-self: stretch;
+  background: none;
+  border: none;
+  border-left: 1px solid;
+  border-image: linear-gradient(transparent 20%, var(--grey-30) 20%, var(--grey-30) 80%, transparent 80%) 1 1;
+}
+
+.download-item-action.open-folder::before {
+  background-image: url(../img/folder.svg)
+}
+
+.download-item-action.cancel::before {
+  background-image: url(../img/cancel.svg)
+}
+
+.download-item-action.retry::before {
+  background-image: url(../img/retry.svg)
+}
+
+.download-item-action.resume::before {
+  background-image: url(../img/resume.svg)
+}
+
+.download-item-action.pause::before {
+  background-image: url(../img/pause.svg)
+}
+
+.download-item-action::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: cover;
+}
+.download-item:hover .download-item-action {
+  border-image: linear-gradient(var(--grey-30) 0%, var(--grey-30) 100%) 1 1;
+}

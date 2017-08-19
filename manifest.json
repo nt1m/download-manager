@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.0",
+  "default_locale": "en",
+  "permissions": ["downloads", "downloads.open"],
+  "background": {
+    "scripts": [
+      "lib/humanize-duration.js",
+      "utils.js",
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "browser_style": false,
+    "default_icon": "img/downloads.svg",
+    "default_title": "Downloads",
+    "default_popup": "index.html#browser-action"
+  },
+  "author": "Tim Nguyen"
+}

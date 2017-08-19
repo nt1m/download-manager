@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "Download Manager"
+  },
+
+  "extensionDescription": {
+    "message": "Download manager"
+  },
+
+  "sidebarTitle": {
+    "message": "Downloads",
+    "description": "Label shown in the sidebar selector."
+  }
+}
