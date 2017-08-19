@@ -18,5 +18,10 @@
     "default_title": "Downloads",
     "default_popup": "index.html#browser-action"
   },
+  "sidebar_action": {
+    "default_title": "__MSG_sidebarTitle__",
+    "default_panel": "index.html",
+    "default_icon": "img/downloads.svg"
+  },
   "author": "Tim Nguyen"
 }
