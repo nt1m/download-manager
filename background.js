@@ -30,16 +30,7 @@ async function findActionIcon() {
     bytesReceived += download.bytesReceived;
 
     if (!download.paused) {
-      // Estimated end time and speed polyfill
-      if (download.startTime) {
-        let speed = download.bytesReceived / (now - new Date(download.startTime).getTime()); // Not accurate if the user has paused
-        if (!download.estimatedEndTime) {
-          let sizeLeft = download.totalBytes - download.bytesReceived;
-          let rawTimeLeft = sizeLeft / speed;
-          download.estimatedEndTime = now + rawTimeLeft;
-        }
-      }
-      remainingTime = Math.max(download.estimatedEndTime - now, remainingTime);
+      remainingTime = Math.max(new Date(download.estimatedEndTime).getTime() - now, remainingTime);
     }
   }
 

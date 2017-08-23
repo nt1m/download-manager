@@ -55,14 +55,10 @@ async function init() {
       // Estimated end time and speed polyfill
       if (download.state === "in_progress" &&
           download.bytesReceived > -1 &&
-          download.startTime) {
+          download.totalBytes > -1 &&
+          download.estimatedEndTime) {
         let now = new Date(Date.now()).getTime();
-        let speed = download.bytesReceived / (now - new Date(download.startTime).getTime()); // Not accurate if the user has paused
-        if (!download.estimatedEndTime && download.totalBytes > -1) {
-          let sizeLeft = download.totalBytes - download.bytesReceived;
-          let rawTimeLeft = sizeLeft / speed;
-          download.estimatedEndTime = now + rawTimeLeft;
-        }
+        let speed = (download.totalBytes - download.bytesReceived) / (new Date(download.estimatedEndTime).getTime() - now);
         download.speed = speed;
         timeoutMap.set(download.id, setTimeout(updateApp, 1000));
       }
